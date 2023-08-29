@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- 
+        https://pixabay.com/illustrations/young-interpretation-wonder-woman-3159858/ 
+
+        https://pixabay.com/illustrations/relationship-batman-bn-flying-army-7853278/
+
+        https://www.ndtv.com/entertainment/entourage-movie-delayed-635148
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Movie Card</title>
+</head>
+
+<body>
+    <section class="content__container">
+
+        <header class="header">
+            <div class="container">
+                <nav class="nav">
+
+                    <a href="#" class="nav__return-btn">
+                        <span></span>
+                        <span></span>
+                    </a>
+
+                    <div class="nav__title">
+                        <p class="nav__text">In Theatres</p>
+                    </div>
+
+                    <div class="nav__hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                </nav>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="containe" id="media-scroller__container">
+                <div class="media-scroller" id="media-scroller__snaps-inline">
+                    <div class="media-scroller__wrapper">
+                        <h1 class="media-scroller__title" id="title">Wonder Woman</h1>
+                        <div class="media-scroller__rating" id="rating">
+                            <p class="media-scroller__text--rating">8.1</p>
+                        </div>
+                    </div>
+
+                    <img src="#" alt="Wonder woman trailer cover photo" class="media-scroller__image">
+                    <!-- <div class="media-scroller__image" id="image"></div> -->
+
+                    <div class="media-scroller__wrapper--column">
+                        <p class="media-scroller__text" id="runtime">2h 21min</p>
+                        <p class="media-scroller__text" id="description">Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit.
+                            Consequuntur pariatur, fugiat aliquid inventore cumque, minima explicabo dolore unde,
+                            quisquam enim sit. Excepturi velit vel aliquam esse eos ullam ratione minima.</p>
+                    </div>
+
+                    <div class="media-scroller__buttons">
+                        <a href="#" class="media-scroller__button" id="button">Buy Ticket</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </section>
+
+
+
+    <script>
+        const title = document.getElementById("title");
+        const rating = document.getElementById("rating");
+        const image = document.getElementById("image");
+        const runtime = document.getElementById("runtime");
+        const description = document.getElementById("description");
+
+        const mediaScroller = document.getElementById("media-scroller__container");
+
+        const films = [
+            filmOne = {
+                title: "Wonder Woman",
+                rating: 8.1,
+                imageUrl: "https://cdn.pixabay.com/photo/2018/02/17/12/29/young-3159858_1280.jpg",
+                runtime: "2h 21min",
+                description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur pariatur, fugiat aliquid inventore cumque, minima explicabo dolore unde, quisquam enim sit. Excepturi velit vel aliquam esse eos ullam ratione minima.",
+            },
+            filmTwo = {
+                title: "Entourage",
+                rating: 8.4,
+                imageUrl: "https://i.ndtvimg.com/mt/movies/2013-09/enoturage-film.jpg",
+                runtime: "1h 42min",
+                description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur pariatur, fugiat aliquid inventore cumque, minima explicabo dolore unde, quisquam enim sit. Excepturi velit vel aliquam esse eos ullam ratione minima.",
+            },
+            filmThree = {
+                title: "Batman",
+                rating: 9.2,
+                imageUrl: "https://cdn.pixabay.com/photo/2023/03/14/22/20/relationship-7853278_1280.jpg",
+                runtime: "2h 12min",
+                description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur pariatur, fugiat aliquid inventore cumque, minima explicabo dolore unde, quisquam enim sit. Excepturi velit vel aliquam esse eos ullam ratione minima.",
+            },
+        ]
+
+        window.addEventListener("DOMContentLoaded", function () {
+            let displayCard = films.map((film) => {
+                return `
+                    <div class="media-scroller">
+
+                    <div class="media-scroller__wrapper">
+                        <h1 class="media-scroller__title" id="title">${film.title}</h1>
+                        <div class="media-scroller__rating" id="rating">
+                            <p class="media-scroller__text--rating">${film.rating}</p>
+                        </div>
+                    </div>
+
+                    <img src="${film.imageUrl}" alt="${film.title} trailer cover photo" class="media-scroller__image">
+                    <div class="media-scroller__wrapper--column">
+                        <p class="media-scroller__text" id="runtime">${film.runtime}</p>
+                        <p class="media-scroller__text" id="description">${film.description}</p>
+                    </div>
+
+                    <div class="media-scroller__buttons">
+                        <a href="#" class="media-scroller__button" id="button">Buy Ticket</a>
+                    </div>
+                </div>
+            `
+            });
+
+            mediaScroller.innerHTML = displayCard;
+        })
+
+    </script>
+</body>
+
+</html>
